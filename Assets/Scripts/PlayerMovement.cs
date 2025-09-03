@@ -10,22 +10,23 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
 
     // refrences 
-    [SerializeField] Transform myCamera;
     [SerializeField] Animator myAnimator;
-    //[SerializeField] PlayerHealth ph; // comment for now!
+    [SerializeField] HealthSO health;
     Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        rb = GetComponent<Rigidbody>();
+       health.RestoreHealth();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         myAnimator.SetFloat("walkSpeed", movementVector.magnitude);
-        myAnimator.SetFloat("ground", myAnimator.transform.position.y);
+        myAnimator.SetFloat("ground", myAnimator.transform.position.y); 
     }
     private void FixedUpdate()
     {
