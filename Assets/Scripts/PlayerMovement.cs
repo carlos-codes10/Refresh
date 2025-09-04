@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 movementVector;
     [SerializeField] float Speed = 1;
     [SerializeField] float jumpForce = 1;
-    bool grounded;
 
     // refrences 
     [SerializeField] Animator myAnimator;
@@ -33,11 +32,6 @@ public class PlayerMovement : MonoBehaviour
        rb.AddForce(movementVector * Speed, ForceMode.Acceleration); 
     }
 
-    /*public void Damage()
-    {
-        ph.health--;
-    }*/
-
     void OnMovement(InputValue v)
     {
         Debug.Log("OnMovement Called!");
@@ -54,7 +48,5 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("OnJump Called!");
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         myAnimator.SetTrigger("jump");
-
-
     }
 }

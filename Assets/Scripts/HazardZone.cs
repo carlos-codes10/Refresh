@@ -3,7 +3,7 @@ using UnityEngine;
 public class HazardZone : MonoBehaviour
 {
     // variables
-    float elapsed;
+    float elapsed = 0;
 
 
     // refrences
@@ -18,6 +18,7 @@ public class HazardZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Player has entered the hazard zone!");
+        health.DecreaseHealth(1);
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,6 +35,5 @@ public class HazardZone : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Player has left the hazard zone!");
-        elapsed = 0;
     }
 }
